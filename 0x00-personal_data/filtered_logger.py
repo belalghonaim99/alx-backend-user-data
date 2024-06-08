@@ -67,9 +67,9 @@ def main():
                 lambda x: '{}={}'.format(x[0], x[1]),
                 zip(columns, row),
             )
-            format_msg = '{};'.format('; '.join(list(record)))
-            logA = ("user_data", logging.INFO, None, None, format_msg, None, None)
-            log_record = logging.LogRecord(*logA)
+            fmat_msg = '{};'.format('; '.join(list(record)))
+            log = ("user_data", logging.INFO, None, None, fmat_msg, None, None)
+            log_record = logging.LogRecord(*log)
             dataLogger.handle(log_record)
 
 
