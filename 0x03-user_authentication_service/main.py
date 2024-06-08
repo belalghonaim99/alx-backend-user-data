@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 """Main module for the user authentication service."""
 import requests
