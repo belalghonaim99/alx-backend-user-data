@@ -90,8 +90,12 @@ class RedactingFormatter(logging.Formatter):
         """Filters values from the log record
         """
         fmt_Mes = super(RedactingFormatter, self).format(record)
-        txt = filter_datum(self.fields, self.REDACTION,
-                            fmt_Mes, self.SEPARATOR)
+        txt = filter_datum(
+            self.fields,
+            self.REDACTION,
+            fmt_Mes,
+            self.SEPARATOR
+        )
         return txt
 
 
