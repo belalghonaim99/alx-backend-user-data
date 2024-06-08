@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 """Filtered logger module."""
 import os
@@ -68,9 +67,9 @@ def main():
                 lambda x: '{}={}'.format(x[0], x[1]),
                 zip(columns, row),
             )
-            formatted_msg = '{};'.format('; '.join(list(record)))
-            log_args = ("user_data", logging.INFO, None, None, formatted_msg, None, None)
-            log_record = logging.LogRecord(*log_args)
+            format_msg = '{};'.format('; '.join(list(record)))
+            logA = ("user_data", logging.INFO, None, None, format_msg, None, None)
+            log_record = logging.LogRecord(*logA)
             dataLogger.handle(log_record)
 
 
@@ -91,8 +90,8 @@ class RedactingFormatter(logging.Formatter):
         """Filters values from the log record
         """
         formattedMessage = super(RedactingFormatter, self).format(record)
-        text = filter_datum(self.fields, self.REDACTION, formattedMessage, self.SEPARATOR)
-        return text
+        txt = filter_datum(self.fields, self.REDACTION, formattedMessage, self.SEPARATOR)
+        return txt
 
 
 if __name__ == "__main__":
